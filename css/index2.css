@@ -23,7 +23,12 @@ header {
 .hero h1 {
     padding-bottom: 2rem;
     color: #000;
-    
+    line-height: 3rem;
+}
+.hero h2 {
+    font-size: 13px;
+    margin: 3rem 0;
+    font-weight: 600;
 }
 
 .hero h1 {
@@ -45,8 +50,8 @@ header {
   font-size: 1.5rem;
   border: none;
   border-radius: 30px;
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
       transition: .5s;
 font-weight: 600;
   cursor: pointer;
@@ -86,10 +91,11 @@ font-weight: 600;
     overflow: hidden;
     margin: 0px 250px;
     padding: 0 20px;
+    margin-top: 130px;
 }
 .cta:hover{
-    background-color: #000;
-    color: #fff;
+    background-color: #5d5e5d;
+    color: #000;
     transition: .5s;
 }
 .option-box {
