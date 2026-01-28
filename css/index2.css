@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: #fff;
+  color: #f8fafc;
+  
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  height: 270px;
+}
+
+.hero {
+    text-align: center;
+    padding: 20px 20px;
+    
+}
+.hero h1 {
+    padding-bottom: 2rem;
+    color: #000;
+    
+}
+
+.hero h1 {
+  font-size: 32px;
+}
+
+.sub {
+  color: #cbd5e1;
+}
+
+#countdown {
+  font-size: 24px;
+  margin: 20px 0;
+  color: rgb(73, 65, 20);
+}
+
+.cta {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #000;
+      transition: .5s;
+font-weight: 600;
+  cursor: pointer;
+  margin: 30px 0;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.products img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: none;
+}
+
+.swiper-slide img {
+    width: 7rem;
+}
+.swiper-container {
+    background-color: #fff;
+    padding: 2rem 0;
+    overflow: hidden;
+    margin: 0px 250px;
+    padding: 0 20px;
+}
+.cta:hover{
+    background-color: #000;
+    color: #fff;
+    transition: .5s;
+}
