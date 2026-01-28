@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barrel</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/reset.css">
+         <!--플러그인 필수 css cdn 연결-->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+         <!--플러그인 필수 JS cdn 연결-->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js"></script>
+</head>
+<style>
+    .start-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* 기본은 숨김 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-inner {
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup-inner button {
+  color: #ffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+</style>
+<body>
+    <header>
+        <div class="header_top">
+            <div class="log_info">
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+                <a href="#">고객센터</a>
+                <a href="#">매장안내</a>
+            </div>
+        </div>
+        <div class="header_btm">
+            <div class="header_btm_left">
+                <div class="top_logo">
+                    <a href="#"><img src="./img/55e8f5a1-001b-491f-982a-e31aba1969e3.png" alt="logo"></a>
+                </div>
+                <ul class="header_nav1 header_nav5">
+                    <li  class="not_padding">
+                        <a href="#">우먼</a>
+                    </li>
+                    <li><a href="#">맨</a></li>
+                    <li><a href="#">키즈</a></li>
+                    <li><a href="#">슈즈</a></li>
+                    <li><a href="#">액세서리</a></li>
+                    <li><a href="#">아울렛</a></li>
+                    <li><a href="#">배럴 X SANN</a></li>
+                </ul>
+            </div>
+            <div class="header_btm_right">
+                <ul class="header_nav1 header_nav2">
+                    <li><a href="#">베럴 인사이드</a></li>
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#"><img src="/img/icon_sch.svg" alt="search"></a></li>
+                    <li><a href="#"><img src="/img/icon_wishlist.svg" alt="wish"></a></li>
+                    <li><a href="#"><img src="/img/icon_cart.svg" alt="cart"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav1">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>워터스포츠</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">래쉬가드</a></li>
+                            <li><a href="#">집업 래쉬가드</a></li>
+                            <li><a href="#">브라탑</a></li>
+                            <li><a href="#">쇼츠</a></li>
+                            <li><a href="#">레깅스</a></li>
+                            <li><a href="#">원피스/스커트</a></li>
+                            <li><a href="#">판초 타월</a></li>
+                            <li><a href="#">비키니/커버업</a></li>
+                            <li><a href="#">네오프렌</a></li>
+                            <li><a href="#">이너웨어</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>실내수영</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">테크니컬</a></li>
+                            <li><a href="#">리플렉션</a></li>
+                            <li><a href="#">패턴</a></li>
+                            <li><a href="#">베이직</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>액세서리</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">워터스포츠</a></li>
+                            <li><a href="#">실내수영</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav2">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>워터스포츠</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">래쉬가드</a></li>
+                            <li><a href="#">집업 래쉬가드</a></li>
+                            <li><a href="#">반팔/슬리브리스</a></li>
+                            <li><a href="#">쇼츠/레깅스</a></li>
+                            <li><a href="#">네오프렌</a></li>
+                            <li><a href="#">판초</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>실내수영</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">테크니컬</a></li>
+                            <li><a href="#">패턴</a></li>
+                            <li><a href="#">베이직</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>액세서리</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">워터스포츠</a></li>
+                            <li><a href="#">실내수영</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav3">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>워터스포츠</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">래쉬가드</a></li>
+                            <li><a href="#">쇼츠/레깅스</a></li>
+                            <li><a href="#">판초 타월</a></li>
+                            <li><a href="#">네오프렌</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>실내수영</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">생존수영키트</a></li>
+                            <li><a href="#">여아</a></li>
+                            <li><a href="#">남아</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>액세서리</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">모자</a></li>
+                            <li><a href="#">스윔 고글</a></li>
+                            <li><a href="#">스윔 캡</a></li>
+                            <li><a href="#">마스크/스노클</a></li>
+                            <li><a href="#">암림/튜브</a></li>
+                            <li><a href="#">가드베스트</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>슈즈</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav4">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>성인</h2>
+                    </li>
+                    <li>
+                        <h2>슈즈</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav5">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>워터스포츠</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">가방</a></li>
+                            <li><a href="#">모자</a></li>
+                            <li><a href="#">비치타월</a></li>
+                            <li><a href="#">다이빙</a></li>
+                            <li><a href="#">가드 베스트</a></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>실내수영</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">가방</a></li>
+                            <li><a href="#">스윔 캡</a></li>
+                            <li><a href="#">스윔 고글</a></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>키즈</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">모자</a></li>
+                            <li><a href="#">스윔 고글</a></li>
+                            <li><a href="#">스윔 캡</a></li>
+                            <li><a href="#">마스크/스노클</a></li>
+                            <li><a href="#">암링/튜브</a></li>
+                            <li><a href="#">가드베스트</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>BARREL X TAG</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">선글라스</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav6">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>워터스포츠</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">우먼 Top</a></li>
+                            <li><a href="#">우먼 Bottom</a></li>
+                            <li><a href="#">맨 Top</a></li>
+                            <li><a href="#">맨 Bottom</a></li>
+                            <li><a href="#">키즈 Top</a></li>
+                            <li><a href="#">키즈 Bottom</a></li>
+                            <li><a href="#">개쉬가드</a></li>
+                            <li><a href="#">판초 타월</a></li>
+                            <li><a href="#">액세서리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>실내수영</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">우먼</a></li>
+                            <li><a href="#">맨</a></li>
+                            <li><a href="#">키즈</a></li>
+                            <li><a href="#">액세서리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>라이프스타일</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">아우터</a></li>
+                            <li><a href="#">후드/맨투맨</a></li>
+                            <li><a href="#">숏/롱 슬리브</a></li>
+                            <li><a href="#">쇼츠/팬츠</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>배럴핏</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">브라탑/레깅스</a></li>
+                            <li><a href="#">슬리브/후디</a></li>
+                            <li><a href="#">쇼츠/팬츠</a></li>
+                            <li><a href="#">아우터</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>슈즈</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">성인</a></li>
+                            <li><a href="#">키즈</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>액세서리</h2>
+                        <ul class="sub1_ul2">
+                            <li><a href="#">가방</a></li>
+                            <li><a href="#">모자</a></li>
+                            <li><a href="#">타월</a></li>
+                            <li><a href="#">수모/수경</a></li>
+                            <li><a href="#">다이빙</a></li>
+                            <li><a href="#">요가 액세서리</a></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_sub2  nav7">
+            <div class="ul_box1">
+                <ul class="sub1_ul1">
+                    <li>
+                        <h2>레쉬가드/래쉬슈트</h2>
+                    </li>
+                    <li>
+                        <h2>쇼트</h2>
+                    </li>
+                    <li>
+                        <h2>액세서리</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="start-popup" id="startPopup">
+        <div class="popup-inner">
+          <p><img src="./img/250508_popup_open.jpg" alt=""></p>
+          <div class="btn_box">
+            <div class="input_box">
+              <input type="checkbox" id="noToday">
+              <span>오늘 하루 닫기</span>
+            </div>
+            <button id="closePopupBtn">[닫기]</button>
+          </div>
+        </div>
+      </div>
+      
+    <main class="main_main">
+        <div class="fiex_btn">
+            <a href="#">
+                <img src="./img/icon_KakaoTalk.svg" alt="">
+            </a>
+            <a href="#" class="up">up</a>
+        </div>
+        <div class="hidden_second">
+            <div class="sub_contents_box">
+                <div class="hidden_top">
+                    <h3 class="hidden_h3">
+                        <a href="#">아카이브</a>
+                    </h3>      
+                    <div class="hid_a_all">
+                        <a href="#" class="hid_nav">전체</a>
+                        <a href="#" class="hid_nav">컬렉션</a>
+                        <a href="#" class="hid_nav">배럴 저널</a>
+                        <a href="#" class="hid_nav">스폰서쉽</a>
+                        <a href="#" class="hid_nav">캠페인</a>
+                        <a href="#" class="hid_nav">브랜드 스토리</a>
+                    </div>
+                </div>
+                <div class="hidden_btm">
+                    <a href="#">가장 빛나는 순간 with 이수현 </a>
+                    <a href="#">베스트 리뷰</a>
+                </div>
+
+            </div>
+            <div class="nav_sns">
+                <a href="#"><img src="./img/icon_instagram.svg" alt="#"></a>
+                <a href="#"><img src="./img/icon_KakaoTalk.svg" alt="#"></a>
+                <a href="#"><img src="./img/icon_youtube.svg" alt="#"></a>
+            </div>
+        </div>
+        <section class="main_banner">
+            <div class="swiper-container banner_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide banner_slide banner_slide1">
+                        <img src="./img/250507_리플렉션_메인배너_pc.jpg" alt="">
+                        <p class="banner_text">
+                            우아하게 유영하는 몸의 곡선을 따라<br>빛나는 신상 리플렉션 스윔 라인
+                        </p>
+                    </div>
+                    <div class="swiper-slide banner_slide banner_slide2">
+                        <img src="./img/메인배너_pc_02.jpg" alt="">
+                        <p class="banner_text">
+                            배럴 키즈 X 산 SANN<br>DIVE INTO STREET VIBES 
+                        </p>
+                    </div>
+                    <div class="swiper-slide banner_slide banner_slide3">
+                        <img src="./img/250425_키즈트로피컬_메인배너_pc.jpg" alt="">
+                        <p class="banner_text">
+                            배럴 키즈 X 산 SANN<br>DIVE INTO STREET VIBES 
+                        </p>
+                    </div>
+                    <div class="swiper-slide banner_slide banner_slide4">
+                        <img src="./img/이수현_메인배너_pc.jpg" alt="">
+                        <p class="banner_text">
+                            
+									가장 뜨거운 계절, 눈부시게 빛나는 지금<br>with  LEE SUHYUN
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_btn2">
+                <div class="swiper-scrollbar">
+    
+                </div>
+                <div class="swiper-pagination main_pagina"></div>
+                <div class="prev_btn">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+
+        </section>
+        <div class="main_product">
+            <div class="top_tities">
+                <h3>HOT CONTENTS</h3>
+                <P>지금 뜨고 있는 기획전!</P>
+            </div>
+            <div class="product_line swiper-container">
+                <ul class="product_price swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="./img/listImg_20250418132818_0000000296.gif" alt="#">
+                        <div class="product_text1">
+                            <p>25년 신상 아쿠아 슈즈 구매 시, <br>슈즈 파우치 증정</p>
+                            <a href="#" class="wishi_heart"><img src="./img/icon_wishlist.svg" alt="#"></a>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="./img/listImg_20250421180827_0000000298.gif" alt="#">
+                        <div class="product_text1">
+                            <p>사타힙의 여름을 뜨겁게 즐긴<br>배우 한재인의 멋진 순간들</p>
+                            <a href="#" class="wishi_heart"><img src="./img/icon_wishlist.svg" alt="#"></a>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="./img/listImg_20250410090549_0000000291.gif" alt="#">
+                        <div class="product_text1">
+                            <p>화려한 썸머 바이브<br>배럴 팜트리 리플렉션 스윔</p>
+                            <a href="#" class="wishi_heart"><img src="./img/icon_wishlist.svg" alt="#"></a>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="./img/listImg_20250407185212_0000000289.gif" alt="#">
+                        <div class="product_text1">
+                            <p>물속에서 영롱하게 빛나는 <br>배럴 시그니처 리플렉션 스윔 라인</p>
+                            <a href="#" class="wishi_heart"><img src="./img/icon_wishlist.svg" alt="#"></a>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="./img/listImg_20240924134511_0000000177.gif" alt="#">
+                        <div class="product_text1">
+                            <p>스폐셜 기프트<br>증정 이벤트</p>
+                            <a href="#" class="wishi_heart"><img src="./img/icon_wishlist.svg" alt="#"></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="scroll_text">
+                    <div class="swiper-scrollbar please2 dummi1">
+                    </div>
+                    <div class="swiper-pagination please2 dummi2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="second_product">
+            <div class="top_tities">
+                <h3>워터스포츠 BEST</h3>
+                <a href="#">상품 전체보기</a>
+            </div>
+            <div class="second_bottom">
+                <div class="second_left">
+                    <a href="#" class="kid">키즈</a>
+                    <a href="#" class="female">우먼</a>
+                    <a href="#" class="male">맨</a>
+                    <a href="#" class="ack">액세서리</a>
+                </div>
+                <div class="second_right_new kid_cate">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new second_wrapper_new1 swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056657_20250408104630_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏  래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056658_20250408104558_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 래쉬가드</h4>
+                            <span>옐로우</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056659_20250408104511_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056703_20250411093557_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056657_20250408104630_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056658_20250408104558_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056659_20250408104511_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056703_20250411093557_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="second_right_new female_cate">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new  second_wrapper_new2 swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056613_20250415094758_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 래쉬가드 이쁘지</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056457_20250417095113_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>그린</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056455_20250417100423_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>후드</span>
+                            <p>75,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056097_20250417115909_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056144_20250417095327_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056064_20250417095911_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>65,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056768_20250421111249_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>45,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056455_20250417100423_2.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="second_right_new male_cate">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new  second_wrapper_new3 swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056002_20250321145829_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 반팔 래쉬가드</h4>
+                            <span>블루</span>
+                            <p>69,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056045_20250320110254_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 반팔 래쉬가드</h4>
+                            <span>그린</span>
+                            <p>69,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056044_20250320110333_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 반팔 래쉬가드</h4>
+                            <span>후드</span>
+                            <p>75,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056002_20250321145829_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 집업 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>89,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056003_20250321145809_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 집업 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056045_20250320110254_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 집업 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>65,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056047_20250320105839_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 집업 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>45,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056701_20250401094610_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 에센셜 릴렉스핏 집업 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="second_right_new ack_cate">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new  second_wrapper_new4 swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056376_20250321173656_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 래쉬가드 이쁘지</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056375_20250321173849_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>그린</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056374_20250321174001_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>후드</span>
+                            <p>75,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056481_20250418151943_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056482_20250418151853_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056064_20250417095911_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>65,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056768_20250421111249_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>45,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056575_20250404172331_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+        </div>
+        <div class="second_product">
+            <div class="top_tities">
+                <h3>실내수영 BEST</h3>
+                <a href="#">상품 전체보기</a>
+            </div>
+            <div class="second_bottom">
+                <div class="second_left">
+                    <a href="#" class="cate_tab active " data-target="kid_cate2">우먼</a>
+                    <a href="#" class="cate_tab" data-target="female_cate2">맨</a>
+                    <a href="#" class="cate_tab" data-target="male_cate2">키즈</a>
+                    <a href="#" class="cate_tab" data-target="ack_cate2">액세서리</a>
+                </div>
+                <div class="second_right_new second_right_new2 kid_cate2">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new  swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056432_20250507155923_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056433_20250507155856_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>바이올렛</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056434_20250430184501_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>오렌지</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056432_20250507155923_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>블루/span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056433_20250507155856_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>바이올렛</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056434_20250430184501_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>오렌지</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056794_20250414153202_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>녹색</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056795_20250414153137_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>우먼 샌드 리플렉션 V백 원피스 수영복</h4>
+                            <span>그린</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="second_right_new female_cate2 second_right_new2">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new   swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056701_20250401094610_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056435_20250408153923_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056441_20250324103203_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056442_20250324103132_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056701_20250401094610_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056702_20250401094530_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056467_20250307184212_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056441_20250324103203_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>맨 클라운피쉬 숏사각 수영복</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="second_right_new male_cate2 second_right_new2">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new   swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056657_20250408104630_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏  래쉬가드</h4>
+                              <span>블랙</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056658_20250408104558_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 래쉬가드</h4>
+                              <span>옐로우</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056659_20250408104511_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 래쉬가드</h4>
+                              <span>핑크</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056703_20250411093557_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                              <span>핑크</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056657_20250408104630_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                              <span>블랙</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056658_20250408104558_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                              <span>블랙</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056659_20250408104511_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                              <span>블랙</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#"><img src="./img/over_0000056703_20250411093557_1.gif" alt=""></a>
+                            <div class="text_box3">
+                              <h4>SANN 키즈 루즈핏 반팔 래쉬가드</h4>
+                              <span>블랙</span>
+                              <p>55,500</p>
+                            </div>
+                          </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                </div>
+                </div>
+                <div class="second_right_new ack_cate2 second_right_new2">
+                    <div class="swiper_conti_new swiper-container">
+                      <ul class="second_wrapper_new   swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056376_20250321173656_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN 래쉬가드 이쁘지</h4>
+                            <span>블루</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056375_20250321173849_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>그린</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056374_20250321174001_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 래쉬가드</h4>
+                            <span>후드</span>
+                            <p>75,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056481_20250418151943_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>핑크</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056482_20250418151853_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>55,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056064_20250417095911_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>65,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/list_0000056768_20250421111249_0.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>45,500</p>
+                          </div>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/over_0000056575_20250404172331_1.gif" alt=""></a>
+                          <div class="text_box3">
+                            <h4>SANN  루즈핏 반팔 래쉬가드</h4>
+                            <span>블랙</span>
+                            <p>35,500</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                  
+                </div>
+        </div>
+        <div class="second_product leesu">
+            <div class="top_tities">
+                <h3>가장 빛나는 순간 with 이수현</h3>
+                <a href="#">상품 전체보기</a>
+            </div>
+            <div class="second_bottom">
+                <div class="second_left">
+                    <a href="#" class="uuuuuu">전체</a>
+                </div>
+                <div class="second_right_new kid_cate">
+                    <div class="swiper_conti_new2 swiper-container">
+                      <ul class="second_wrapper_new second_wrapper_new6 swiper-wrapper">
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/listImg_20250430161512_0000000304.gif" alt=""></a>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/listImg_20250430161104_0000000303.gif" alt=""></a>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/listImg_20250430161744_0000000305.gif" alt=""></a>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/listImg_20250430161919_0000000306.gif" alt=""></a>
+                        </li>
+                        <li class="swiper-slide">
+                          <a href="#"><img src="./img/listImg_20250430162151_0000000309.gif" alt=""></a>
+                        </li>
+                      </ul>
+                      <div class="scroll_text_new">
+                        <div class="swiper-scrollbar new_scrollbar"></div>
+                        <div class="swiper-pagination new_pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        
+    </main>
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="footer_top_left">
+                <img class="footer_logo" src="./img/shop_logo.svg" alt="#">
+                <div class="footer_mid">
+                    <h4>고객센터 운영안내</h4>
+                    <p>	1899-8751</p>
+                    <span>평일 10:00~17:00 | 토,일,공휴일 휴무<br>점심시간 : 12:00-13:00</span>
+                </div>
+                <div class="footer_right">
+                    <a href="#">고객센터</a>
+                    <a href="#">매장안내</a>
+                </div>
+            </div>
+            <div class="footer_top_right">
+                <div class="footer_right_top">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">멤버십약관</a>
+                    <a href="#">기업IR</a>
+                </div>
+                <div class="right_btm">
+                    <img src="./img/ISMS.png" alt="#">
+                    <div class="btm_left_foot">
+                        <p>[인증범위]온라인 쇼핑 서비스 운영(베럴)</p>
+                        <p>[유효기간]2024.06.16 ~ 2027.06.15</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>주식회사 배럴 <em>사업자정보 확인</em></p>
+            <span>서울시 용산구 원효로 138 청진빌딩 2층, 3층</span>
+            <span>대표이사:박영준</span>
+            <span>개인정보책임관리자:신재성</span>
+            <span>사업자번호:105-87-39951 / <em> 사업자 정보 확인</em></span>
+            <span>통신판매업 신고번호:2022=서울용산-1154 / <em> 서비스 가입 사실 확인</em></span>
+            <span>fax:02-540-3176/Email:help@getbarrel.com</span>
+            <div class="bottom_footer2">
+                <span>© BARREL ALL RIGHTS RESERVED.</span>
+                <div class="instargram">
+                    <a href="#"><img src="./img/icon_instagram.svg" alt=""></a>
+                    <a href="#"><img src="./img/icon_KakaoTalk.svg" alt=""></a>
+                    <a href="#"><img src="./img/icon_facebook.svg" alt=""></a>
+                    <a href="#"><img src="./img/icon_youtube.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+
+
+    
+</script>
+<script src="./js/index.js"></script>
+
+</html>
