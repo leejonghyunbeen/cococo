@@ -1,125 +1,723 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>LUNA RINGS | 한정 이벤트</title>
-  <link rel="stylesheet" href="css/index2.css" />
-  <link rel="stylesheet" href="css/reset.css">
-           <!--플러그인 필수 css cdn 연결-->
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
-         <!--플러그인 필수 JS cdn 연결-->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>우리의 일본 여행 ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+:root {
+  --pink:#ffb9c9;
+  --pink2:#ffe4e9;
+  --yellow:#ffe89a;
+  --mint:#d8eee0;
+  --purple:#e8dfff;
+  --ink:#4d484b;
+  --paper:#fffaf4;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#f4e9e7;
+  color:var(--ink);
+  font-family:'Noto Sans KR',sans-serif;
+  overflow:hidden;
+}
+
+button{font:inherit;cursor:pointer}
+
+header{
+  height:65px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--paper);
+  border-bottom:2px dashed #f1d5d2;
+  position:relative;
+  z-index:5;
+}
+
+.logo{
+  font-family:Jua;
+  font-size:22px;
+  color:#ed8da8;
+}
+
+.logo span{color:#e9bd54}
+.header-note{font-size:11px;color:#b49c9c}
+
+.deck{height:calc(100dvh - 65px)}
+
+.slide{
+  display:none;
+  height:100%;
+  overflow-y:auto;
+  padding:30px 7% 90px;
+  position:relative;
+  animation:pop .4s ease;
+}
+
+.slide.active{display:block}
+
+@keyframes pop{
+  from{opacity:0;transform:translateY(12px) scale(.99)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.sticker{
+  display:inline-block;
+  padding:8px 13px;
+  border-radius:100px;
+  font-size:12px;
+  font-weight:700;
+  transform:rotate(-3deg);
+  background:var(--yellow);
+  box-shadow:2px 3px 0 #e7d8b9;
+}
+
+h1,h2,h3{font-family:Jua;font-weight:400}
+h1{font-size:clamp(52px,10vw,100px);line-height:1.05;margin:20px 0}
+h2{font-size:clamp(34px,6vw,55px);margin:12px 0}
+p{line-height:1.85;font-size:14px}
+
+.hero{
+  height:100%;
+  min-height:520px;
+  margin:-30px -7% -90px;
+  padding:45px 7% 100px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:30px;
+  background:var(--pink2);
+  position:relative;
+}
+
+.hero-copy{position:relative;z-index:2}
+.hero h1{color:#d96e91}
+.hero p{max-width:340px}
+
+.hero-photo{
+  width:100%;
+  height:min(55vh,440px);
+  min-height:260px;
+  border:9px solid white;
+  border-radius:46% 46% 25px 25px;
+  overflow:hidden;
+  box-shadow:7px 9px 0 #efb3c5;
+  transform:rotate(3deg);
+  position:relative;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.floating{
+  position:absolute;
+  font-size:35px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  50%{transform:translateY(-10px) rotate(8deg)}
+}
+
+.f1{top:9%;right:10%}
+.f2{bottom:17%;left:48%;animation-delay:.6s}
+.f3{top:18%;left:4%}
+
+.decor{position:absolute;right:7%;top:28px;font-size:25px}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.tiny{
+  font-size:11px;
+  color:#ad9998;
+  letter-spacing:1px;
+}
+
+.day-title{
+  background:white;
+  border-radius:22px;
+  padding:23px;
+  box-shadow:0 5px 0 #eadbd4;
+  margin:20px 0;
+}
+
+.day-title h2{color:#d97897}
+
+.timeline{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.card{
+  background:white;
+  border:2px solid #fff;
+  border-radius:19px;
+  padding:18px;
+  box-shadow:0 4px 0 #e8dbd4;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.card:hover{
+  transform:translateY(-4px) rotate(-.5deg);
+  box-shadow:0 8px 0 #e8dbd4;
+}
+
+.card:nth-child(3n+1){background:#fff7dc}
+.card:nth-child(3n+2){background:#f2eaff}
+.card:nth-child(3n){background:#e7f5ec}
+
+.time{
+  font-size:11px;
+  font-weight:900;
+  color:#b98b83;
+}
+
+.card h3{font-size:19px;margin:12px 0 7px}
+.card p{font-size:12px;margin:0;color:#776d6d}
+.emoji{font-size:25px}
+
+.photo-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin:20px 0;
+}
+
+.mini-photo{
+  height:180px;
+  border-radius:22px;
+  overflow:hidden;
+  border:6px solid white;
+  box-shadow:0 5px 0 #e8dbd4;
+  transform:rotate(-2deg);
+}
+
+.mini-photo:nth-child(2){transform:rotate(2deg)}
+
+.mini-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.note{
+  background:#fff;
+  border-radius:16px;
+  padding:17px;
+  border:2px dashed #f0c4cd;
+  font-size:12px;
+  line-height:1.9;
+  margin-top:20px;
+}
+
+.checklist{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.check{
+  background:white;
+  padding:14px;
+  border-radius:13px;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.check input{
+  accent-color:#ee93ad;
+  width:17px;
+  height:17px;
+}
+
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:12px 5%;
+  background:rgba(255,250,244,.96);
+  border-top:2px dashed #eed8d2;
+}
+
+.pagenum{
+  font-family:Jua;
+  white-space:nowrap;
+  color:#d97897;
+}
+
+.track{
+  height:7px;
+  background:#f0e4df;
+  border-radius:10px;
+  flex:1;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  width:20%;
+  background:#f5a8bf;
+  border-radius:10px;
+  transition:width .3s;
+}
+
+.navbtn{
+  border:0;
+  border-radius:50%;
+  width:39px;
+  height:39px;
+  background:var(--pink2);
+  color:#bf6c88;
+  font-size:19px;
+  transition:transform .2s;
+}
+
+.navbtn:hover{transform:scale(1.1)}
+.navbtn:disabled{opacity:.3}
+
+@media(max-width:600px){
+  header{height:55px;padding:0 18px}
+  .deck{height:calc(100dvh - 55px)}
+  .slide{padding:23px 18px 90px}
+
+  .hero{
+    margin:-23px -18px -90px;
+    padding:30px 22px 100px;
+    grid-template-columns:1fr;
+    grid-template-rows:auto 230px;
+    gap:12px;
+  }
+
+  .hero h1{font-size:62px;margin:13px 0}
+  .hero p{font-size:12px}
+  .hero-photo{height:220px;min-height:0;width:85%;margin:0 auto}
+
+  .f1{top:3%;right:6%}
+  .f2{bottom:20%;left:6%}
+  .f3{top:36%;left:5%}
+
+  .timeline{gap:9px}
+  .card{padding:13px;border-radius:15px}
+  .card h3{font-size:16px}
+  .card p{font-size:11px}
+
+  .photo-row{gap:10px}
+  .mini-photo{height:140px}
+
+  .checklist{grid-template-columns:1fr}
+  .decor{right:5%;top:14px}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="img/logo3.png" class="logo" />
+  <div class="logo">tokki trip <span>♡</span></div>
+  <div class="header-note">우리의 일본 여행 ✈</div>
 </header>
 
-<section class="hero">
-  <h1>발렌타인 기념 LUSO<BR>  silver 커플링100명 무료이벤트</h1>
-    <h2>당첨자 발표 : 2주내 추첨 메일 발표 </h2>
-  <div id="countdown"></div>
-  <a target="_blank" href="https://luso.co.kr/category/Silver(925)/218/" class="cta" >이벤트 바로가기</a>
-</section>
-            <div class="swiper-container banner_swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide banner_slide banner_slide1">
-                        <img src="./img/ring1.png" alt="">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide2">
-                        <img src="./img/ring2.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide3">
-                        <img src="./img/ring3.png" alt="">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring4.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring5.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring6.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring7.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring8.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring81.jpg" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring10.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring11.jpg" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring12.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring13.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring14.png" alt="#">
-                    </div>
-                    <div class="swiper-slide banner_slide banner_slide4">
-                        <img src="./img/ring15.jpg" alt="#">
-                    </div>
-                </div>
-            </div>
-<section class="option-box">
-  <form action="https://formspree.io/f/mojwqeao" method="POST">
-    <div class="option-item">
-      <label>상품이름</label>
-      <input type="text" name="상품이름" placeholder="예) 위드 러브 실버 커플링">
+<main class="deck">
+
+  <!-- COVER -->
+  <section class="slide active">
+    <div class="hero">
+      <div class="hero-copy">
+        <span class="sticker">✿ OUR LITTLE TRIP ✿</span>
+        <h1>Osaka<br>& Nara!</h1>
+        <p>맛있는 거 먹고, 예쁜 곳 가고,<br>온천에서 힐링하는 3일간의 여행 ♡</p>
+        <span class="sticker" style="background:#d8eee0">3 DAYS · 2 NIGHTS</span>
+      </div>
+
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=900&q=85" alt="오사카 도톤보리">
+      </div>
+
+      <span class="floating f1">✧</span>
+      <span class="floating f2">♡</span>
+      <span class="floating f3">🌸</span>
+    </div>
+  </section>
+
+  <!-- DAY 1 -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="sticker">DAY 01 🍡</span>
+      <span class="tiny">CITY ADVENTURE</span>
     </div>
 
-    <div class="option-item">
-      <label>남자 사이즈</label>
-      <input type="text" name="남자사이즈" placeholder="예) 5호">
+    <div class="day-title">
+      <h2>오사카에 도착! 🎀</h2>
+      <p>카페부터 성, 야경과 도톤보리까지 알차게 즐기는 첫날.</p>
     </div>
 
-    <div class="option-item">
-      <label>여자 사이즈</label>
-      <input type="text" name="여자사이즈" placeholder="예) 5호">
+    <div class="photo-row">
+      <div class="mini-photo">
+        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=600&q=80" alt="도톤보리">
+      </div>
+      <div class="mini-photo">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80" alt="일본 거리">
+      </div>
     </div>
 
-    <div class="option-item">
-      <label>남성 골드도금</label>
-      <input type="text" name="남성골드도금" placeholder="예) 안함 / 옐로우,핑크,화이트">
+    <div class="timeline">
+      <article class="card">
+        <span class="emoji">✈️</span>
+        <div class="time">11:00</div>
+        <h3>오사카역 도착</h3>
+        <p>간사이공항에서 이동</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🧳</span>
+        <div class="time">LUNCH</div>
+        <h3>짐 맡기고 점심</h3>
+        <p>숙소에 짐을 맡긴 뒤 식사</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">☕</span>
+        <div class="time">AFTERNOON</div>
+        <h3>나카자키초</h3>
+        <p>카페 거리 산책, 살롱 드 아만토</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🏯</span>
+        <div class="time">AFTERNOON</div>
+        <h3>오사카성</h3>
+        <p>성 관람과 고자부네 배 타기</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🌇</span>
+        <div class="time">EVENING</div>
+        <h3>우메다 스카이 빌딩</h3>
+        <p>공중정원 전망대 감상</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🎡</span>
+        <div class="time">EVENING</div>
+        <h3>관람차 탑승</h3>
+        <p>우메다에서 야경 즐기기</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🥩</span>
+        <div class="time">DINNER</div>
+        <h3>야키니쿠 저녁</h3>
+        <p>맛있는 고기로 든든하게</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🚤</span>
+        <div class="time">NIGHT</div>
+        <h3>도톤보리 원더 크루즈</h3>
+        <p>강 위에서 도톤보리 야경 감상</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🍻</span>
+        <div class="time">LATE NIGHT</div>
+        <h3>야장 & 편의점</h3>
+        <p>야장 술집 들른 뒤 편의점 쇼핑, 숙소</p>
+      </article>
     </div>
 
-    <div class="option-item">
-      <label>여성 골드도금</label>
-      <input type="text" name="여성골드도금" placeholder="예) 안함 / 옐로우,핑크,화이트">
+    <div class="note">
+      💌 첫날은 이동이 많아! 보트와 크루즈 예약 시간부터 확인하자.
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="sticker" style="background:#d8eee0">DAY 02 🦌</span>
+      <span class="tiny">SLOW & COZY</span>
     </div>
 
-    <div class="option-item">
-      <label>남자 무광 / 유광</label>
-      <input type="text" name="남자무광유광" placeholder="예) 무광 / 선택안함">
+    <div class="day-title" style="background:#e7f5ec">
+      <h2 style="color:#648d72">나라에서 힐링 ♨</h2>
+      <p>아침 호잔지 산책부터 온천과 사우나까지 여유롭게.</p>
     </div>
 
-    <div class="option-item">
-      <label>여자 무광 / 유광</label>
-      <input type="text" name="여자무광유광" placeholder="예) 유광 / 선택안함">
+    <div class="photo-row">
+      <div class="mini-photo">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="일본 전통 거리">
+      </div>
+      <div class="mini-photo">
+        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80" alt="휴식 공간">
+      </div>
     </div>
 
-    <div class="option-item">
-      <label>반지 안쪽 각인</label>
-      <input type="text" name="각인내용" placeholder="예) 2026.02.14">
+    <div class="timeline">
+      <article class="card">
+        <span class="emoji">⛩️</span>
+        <div class="time">MORNING</div>
+        <h3>호잔지 방문</h3>
+        <p>아침에 산속 사찰 둘러보기</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🚶</span>
+        <div class="time">MORNING</div>
+        <h3>이코마 주변 산책</h3>
+        <p>호잔지와 이코마 일대 둘러보기</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🍜</span>
+        <div class="time">LUNCH</div>
+        <h3>이코마 점심</h3>
+        <p>이코마 주변에서 점심 식사</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🚃</span>
+        <div class="time">AFTERNOON</div>
+        <h3>나라 시내로 복귀</h3>
+        <p>온천을 위해 나라 시내로 이동</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">♨️</span>
+        <div class="time">AFTERNOON</div>
+        <h3>유라라노유 나라점</h3>
+        <p>온천과 사우나에서 휴식</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🍚</span>
+        <div class="time">EVENING</div>
+        <h3>나라역 근처 저녁</h3>
+        <p>역 주변에서 저녁 식사</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🛏️</span>
+        <div class="time">NIGHT</div>
+        <h3>나라역 주변 숙소</h3>
+        <p>숙소에서 1박하며 휴식</p>
+      </article>
     </div>
 
-    <button type="submit" class="fake-buy">응모하기</button>
-  </form>
-</section>
+    <div class="note">
+      🦌 호잔지에서 온천까지의 이동편과 온천 영업시간은 꼭 확인해 줘.
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="sticker" style="background:#e8dfff">DAY 03 🛍️</span>
+      <span class="tiny">SHOPPING DAY</span>
+    </div>
+
+    <div class="day-title" style="background:#f0eaff">
+      <h2 style="color:#8b78bd">마지막까지 쇼핑!</h2>
+      <p>아침 식사 후 오사카로 이동해 쇼핑하고 귀국하는 날.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="card">
+        <span class="emoji">🥐</span>
+        <div class="time">MORNING</div>
+        <h3>나라역 근처 아침</h3>
+        <p>역 주변에서 아침 식사</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🚃</span>
+        <div class="time">AFTER BREAKFAST</div>
+        <h3>오사카로 이동</h3>
+        <p>나라에서 오사카 시내로 이동</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">🛍️</span>
+        <div class="time">DAYTIME</div>
+        <h3>오사카 쇼핑</h3>
+        <p>쇼핑 중심으로 자유롭게 일정 즐기기</p>
+      </article>
+
+      <article class="card">
+        <span class="emoji">✈️</span>
+        <div class="time">RETURN</div>
+        <h3>공항 이동 & 귀국</h3>
+        <p>쇼핑을 마친 뒤 간사이공항으로 이동</p>
+      </article>
+    </div>
+
+    <div class="note">
+      ✈️ 쇼핑을 마친 뒤 공항으로 이동해 귀국!
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="slide">
+    <span class="sticker">READY? 💗</span>
+
+    <h2 style="margin-top:25px">여행 준비 체크! 🧸</h2>
+    <p>하나씩 체크하면서 출발 준비를 해보자.</p>
+
+    <div class="checklist">
+      <label class="check">
+        <input type="checkbox"> 여권 & 항공권 확인✈️
+      </label>
+
+      <label class="check">
+        <input type="checkbox"> 숙소 예약 확인 🏠
+      </label>
+
+      <label class="check">
+        <input type="checkbox"> 비짓 제펜 💳
+      </label>
+
+      <label class="check">
+        <input type="checkbox"> 오사카성 보트 예약 🚤
+      </label>
+
+      <label class="check">
+        <input type="checkbox"> 환전💵
+      </label>
+
+      <label class="check">
+        <input type="checkbox"> 쇼핑 리스트 작성 🎁
+      </label>
+      <label class="check">
+        <input type="checkbox"> 이심📞
+      </label>
 
 
-<script src="js/index2.js"></script>
+    </div>
+
+    <div class="day-title" style="margin-top:24px;background:#ffe4e9;text-align:center">
+      <h2 style="font-size:28px">Let's make memories! ♡</h2>
+      <p>즐거운 오사카 & 나라 여행이 되길 🌸</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 하단 페이지 이동 -->
+<div class="bottom">
+  <span class="pagenum" id="page">01 / 05</span>
+  <div class="track">
+    <div class="fill" id="fill"></div>
+  </div>
+  <button class="navbtn" id="prev" aria-label="이전">←</button>
+  <button class="navbtn" id="next" aria-label="다음">→</button>
+</div>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+
+let current = 0;
+let startX = 0;
+let startY = 0;
+
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
+// 페이지 이동 함수
+function show(i){
+  current = Math.max(0, Math.min(slides.length - 1, i));
+
+  slides.forEach((s, n) => {
+    s.classList.toggle('active', n === current);
+
+    if(n === current){
+      s.scrollTop = 0;
+    }
+  });
+
+  document.getElementById('page').textContent =
+    `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+
+  document.getElementById('fill').style.width =
+    `${(current + 1) / slides.length * 100}%`;
+
+  prev.disabled = current === 0;
+  next.disabled = current === slides.length - 1;
+}
+
+// 하단 버튼
+prev.onclick = () => show(current - 1);
+next.onclick = () => show(current + 1);
+
+// 화면 좌우 클릭
+document.addEventListener('click', (e) => {
+
+  // 버튼, 링크, 체크박스 클릭은 페이지 이동에서 제외
+  if(e.target.closest('button, a, input, label')) return;
+
+  const screenWidth = window.innerWidth;
+
+  if(e.clientX < screenWidth / 2){
+    // 왼쪽 클릭: 이전 페이지
+    show(current - 1);
+  }else{
+    // 오른쪽 클릭: 다음 페이지
+    show(current + 1);
+  }
+});
+
+// 키보드 방향키
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'ArrowRight'){
+    show(current + 1);
+  }
+
+  if(e.key === 'ArrowLeft'){
+    show(current - 1);
+  }
+});
+
+// 모바일 스와이프
+const deck = document.querySelector('.deck');
+
+deck.addEventListener('touchstart', (e) => {
+  startX = e.changedTouches[0].clientX;
+  startY = e.changedTouches[0].clientY;
+}, {passive:true});
+
+deck.addEventListener('touchend', (e) => {
+  const dx = e.changedTouches[0].clientX - startX;
+  const dy = e.changedTouches[0].clientY - startY;
+
+  if(Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.3){
+    show(current + (dx < 0 ? 1 : -1));
+  }
+}, {passive:true});
+
+// 첫 페이지 표시
+show(0);
+</script>
+
 </body>
 </html>
